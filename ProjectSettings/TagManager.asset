@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - DoorTrigger
+  - DoorLeft
+  - DoorRight
+  - ClassicDoor
   layers:
   - Default
   - TransparentFX
