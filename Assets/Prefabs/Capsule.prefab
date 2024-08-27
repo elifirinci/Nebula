@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lerpValue: 5
-  distanceToClassicDooValue: 2
+  distanceToClassicDooValue: 6
 --- !u!54 &2705049806427177762
 Rigidbody:
   m_ObjectHideFlags: 0

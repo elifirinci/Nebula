@@ -14,10 +14,10 @@ public class DoorMechanic : MonoBehaviour
     Vector3 doorRightPosition;
 
     [SerializeField] float lerpValue = 10;
-    [SerializeField] float distanceToClassicDoorValue = 10;
+    [SerializeField] float distanceToClassicDooValue = 10;
     bool isExit;
     bool isClassicExit;
-    
+    bool isRotate;
 
     void Update()
     {
@@ -32,7 +32,7 @@ public class DoorMechanic : MonoBehaviour
             Quaternion lerpDoor = Quaternion.Euler(0, 0, 0);
             classicDoor.rotation = Quaternion.Slerp(classicDoor.rotation, lerpDoor, lerpValue * Time.deltaTime);
         }
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -61,7 +61,33 @@ public class DoorMechanic : MonoBehaviour
             doorRight.position = Vector3.Lerp(doorRight.position, openDoorRightPosition.position, lerpValue * Time.deltaTime);
         }
 
-        
+        if (other.gameObject.CompareTag("ClassicDoor"))
+        {
+            isClassicExit = false;
+            classicDoor = other.transform.GetChild(0);
+            float distanceToClassicDoor = transform.position.x - classicDoor.position.x;
+            if (distanceToClassicDoor > +distanceToClassicDooValue && !isRotate)
+            {
+                
+                Quaternion lerpDoor = Quaternion.Euler(0, 90, 0);
+                classicDoor.rotation = Quaternion.Slerp(classicDoor.rotation, lerpDoor, lerpValue * Time.deltaTime);
+                if (transform.rotation==lerpDoor)
+                {
+                    isRotate = true;
+                }
+            }
+            if (distanceToClassicDoor < -distanceToClassicDooValue && !isRotate)
+            {
+               
+                Quaternion lerpDoor = Quaternion.Euler(0, -90, 0);
+                classicDoor.rotation = Quaternion.Slerp(classicDoor.rotation, lerpDoor, lerpValue * Time.deltaTime);
+                if (transform.rotation == lerpDoor)
+                {
+                    isRotate = true;
+                }
+            }
+
+        }
 
     }
     private void OnTriggerExit(Collider other)
@@ -71,6 +97,10 @@ public class DoorMechanic : MonoBehaviour
             isExit = true;
         }
 
-        
+        if (other.gameObject.CompareTag("ClassicDoor"))
+        {
+            isRotate = false;
+            isClassicExit = true;
+        }
     }
 }
