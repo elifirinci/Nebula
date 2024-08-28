@@ -68,7 +68,6 @@ public class DoorMechanic : MonoBehaviour
             float distanceToClassicDoor = transform.position.x - classicDoor.position.x;
             if (distanceToClassicDoor > +distanceToClassicDooValue && !isRotate)
             {
-                
                 Quaternion lerpDoor = Quaternion.Euler(0, 90, 0);
                 classicDoor.rotation = Quaternion.Slerp(classicDoor.rotation, lerpDoor, lerpValue * Time.deltaTime);
                 if (transform.rotation==lerpDoor)

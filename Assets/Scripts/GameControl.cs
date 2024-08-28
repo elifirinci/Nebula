@@ -25,9 +25,9 @@ public class GameControl : MonoBehaviour
     public TextMeshProUGUI scoreText;
     bool isMute;
     bool isPause;
-    float time = 0;
-    float minute;
-    float second;
+    //float time = 0;
+    //float minute;
+    //float second;
     int imagesControl;
     int buttonClicked;
 
@@ -125,7 +125,7 @@ public class GameControl : MonoBehaviour
     }
     public void RestartFNC()
     {
-        time = 0;
+        //time = 0;
         imagesControl = images.Length;
         scorePanel.gameObject.SetActive(false);
         isPause = false;

@@ -131,6 +131,7 @@ MonoBehaviour:
   speedDeccalariton: 2
   minClamp: 0
   gravityMultiplier: 15
+  targetObject: {fileID: 7490310788926398536, guid: 2ed319875e079d947897982da3696851, type: 3}
 --- !u!114 &6051885339688834779
 MonoBehaviour:
   m_ObjectHideFlags: 0

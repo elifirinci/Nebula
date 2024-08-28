@@ -15,6 +15,7 @@ public class Movement : MonoBehaviour
     [SerializeField] float minClamp;
     [SerializeField] float gravityMultiplier;
     float currentRotationX = 0f;
+    public GameObject targetObject;
     [Header("Objects")]
     Rigidbody rb;
     float defaultSpeed;
@@ -22,6 +23,7 @@ public class Movement : MonoBehaviour
     float forceSpeed;
     [Header("Bool")]
     bool isGround;
+    public static bool isPass;
 
     void Start()
     {
@@ -37,7 +39,16 @@ public class Movement : MonoBehaviour
         Direction();
         Jump();
         Force();
+        float distanceToTarget = transform.position.z - targetObject.transform.position.z;
+        if (Mathf.Abs(distanceToTarget) < 2)
+        {
+            isPass = true;
+        }
+        else
+        {
 
+            isPass = false;
+        }
     }
 
     void Direction()
