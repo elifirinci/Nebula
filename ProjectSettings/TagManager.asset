@@ -9,6 +9,21 @@ TagManager:
   - DoorLeft
   - DoorRight
   - ClassicDoor
+  - 1
+  - 2
+  - 3
+  - 4
+  - SnapPoint
+  - ClassicDoor
+  - DoorLeft
+  - DoorRight
+  - DoorTrigger
+  - Ground
+  - yandas
+  - emir
+  - folder
+  - markov
+  - FlashlightLight
   layers:
   - Default
   - TransparentFX
@@ -16,7 +31,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - tunel
   - 
   - 
   - 
